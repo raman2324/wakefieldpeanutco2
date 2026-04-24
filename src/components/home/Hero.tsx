@@ -12,9 +12,9 @@ export function Hero() {
       transition={{ duration: 0.6 }}
       className="bg-grain relative overflow-hidden bg-cream"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-16 lg:grid-cols-100 lg:gap-10 lg:py-24 lg:px-8">
-        {/* LEFT — 58/100 ≈ headline gets more oxygen than 7/12 */}
-        <div className="lg:col-span-58">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-16 lg:grid-cols-12 lg:gap-10 lg:py-24 lg:px-8">
+        {/* LEFT — 7/12 ≈ 58% so the headline gets oxygen */}
+        <div className="lg:col-span-7">
           <motion.span
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,8 +93,8 @@ export function Hero() {
           </motion.ul>
         </div>
 
-        {/* RIGHT — image + floating cards (42/100) */}
-        <div className="relative lg:col-span-42">
+        {/* RIGHT — image + floating cards (5/12 ≈ 42%) */}
+        <div className="relative lg:col-span-5">
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
