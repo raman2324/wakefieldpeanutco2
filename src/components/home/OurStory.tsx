@@ -29,20 +29,20 @@ export function OurStory() {
           <div className="relative lg:col-span-7">
             <motion.span
               aria-hidden
-              style={{ y: yWatermark }}
-              className="pointer-events-none absolute -left-2 -top-10 select-none font-serif text-[clamp(11rem,22vw,20rem)] font-light leading-none text-roast/[0.06]"
+              style={{ y: yWatermark, WebkitTextStroke: "1.5px var(--color-gold)", color: "transparent", opacity: 0.06 }}
+              className="pointer-events-none absolute -left-2 -top-10 select-none scale-110 font-serif text-[clamp(12rem,24vw,22rem)] font-light leading-none"
             >
               1945
             </motion.span>
 
             <div className="relative">
               <p className="text-xs font-semibold uppercase tracking-widest text-roast">Our Story</p>
-              <h2 className="mt-3 font-serif text-5xl font-medium leading-[1.02] text-ink lg:text-7xl">
-                A Legacy
-                <br />
-                Four Generations
-                <br />
-                <em className="not-italic text-roast">in the Making.</em>
+              <h2 className="mt-3 font-serif text-5xl font-medium leading-[0.95] text-ink lg:text-7xl">
+                <span className="block">A Legacy</span>
+                <span className="block">Four Generations</span>
+                <span className="block">
+                  <em className="not-italic text-roast">in the Making.</em>
+                </span>
               </h2>
 
               <p className="drop-cap mt-10 max-w-xl text-lg leading-[1.65] text-ink/80">

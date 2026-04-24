@@ -76,9 +76,15 @@ export function PairingsAndRecipes() {
                 <p className="mt-2 max-w-sm font-serif italic text-cream/85 transition-transform duration-500 md:translate-y-2 md:opacity-90 md:group-hover:translate-y-0 md:group-hover:opacity-100">
                   "{p.mood}"
                 </p>
+                <span
+                  aria-hidden
+                  className="mt-3 block h-px w-0 bg-gold transition-all duration-[400ms] ease-out group-hover:w-full"
+                />
                 <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-gold">
-                  {p.cta}
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1.5" />
+                  <span className="border-b border-transparent transition-colors group-hover:border-gold">
+                    {p.cta}
+                  </span>
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-[6px]" />
                 </span>
               </div>
             </a>
