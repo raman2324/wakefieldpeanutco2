@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Heart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import imgSalted from "@/assets/product-salted.jpg";
+import imgChocolate from "@/assets/product-chocolate.jpg";
+import imgRaw from "@/assets/product-raw.jpg";
+import imgHoney from "@/assets/product-honey.jpg";
+import imgToffee from "@/assets/product-toffee.jpg";
+import imgBrittle from "@/assets/product-brittle.jpg";
+import imgCajun from "@/assets/product-cajun.jpg";
+import imgTrail from "@/assets/product-trail.jpg";
 
 export type Product = {
   id: string;
@@ -102,7 +110,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 341,
     badge: "Best Seller",
-    image: "https://images.unsplash.com/photo-1572441713132-c542fc4fe282?auto=format&fit=crop&w=600&q=80",
+    image: imgSalted,
     detail: "3 oz tin · Ships in 2 days · Best with coffee",
   },
   {
@@ -112,7 +120,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     price: "$9.45–$15.50",
     rating: 4.8,
     reviews: 267,
-    image: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=600&q=80",
+    image: imgChocolate,
     detail: "Hand-dipped · Ships in 2 days · After-dinner treat",
   },
   {
@@ -122,7 +130,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     price: "$12.95–$28.50",
     rating: 4.7,
     reviews: 189,
-    image: "https://images.unsplash.com/photo-1626078297058-23ed68d23bbf?auto=format&fit=crop&w=600&q=80",
+    image: imgRaw,
     detail: "Bulk bag · Ships in 2 days · Perfect for boiling",
   },
   {
@@ -133,7 +141,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     rating: 4.9,
     reviews: 412,
     badge: "Best Seller",
-    image: "https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?auto=format&fit=crop&w=600&q=80",
+    image: imgHoney,
     detail: "Sweet roast · Ships in 2 days · Pairs with bourbon",
   },
   {
@@ -143,7 +151,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     price: "$9.95–$16.50",
     rating: 4.8,
     reviews: 198,
-    image: "https://images.unsplash.com/photo-1582716401301-b2407dc7563d?auto=format&fit=crop&w=600&q=80",
+    image: imgToffee,
     detail: "Buttery glaze · Ships in 2 days · Holiday favorite",
   },
   {
@@ -153,7 +161,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     price: "$10.50",
     rating: 4.9,
     reviews: 223,
-    image: "https://images.unsplash.com/photo-1566454419290-57a0589c9b51?auto=format&fit=crop&w=600&q=80",
+    image: imgBrittle,
     detail: "Hand-poured · Ships in 2 days · Crackles like rain",
   },
   {
@@ -163,7 +171,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     price: "$11.95",
     rating: 4.7,
     reviews: 156,
-    image: "https://images.unsplash.com/photo-1604908554027-2b572202e185?auto=format&fit=crop&w=600&q=80",
+    image: imgCajun,
     detail: "Bold heat · Ships in 2 days · Game-day-ready",
   },
   {
@@ -174,7 +182,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     rating: 4.8,
     reviews: 84,
     badge: "New",
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80",
+    image: imgTrail,
     detail: "Sweet + salty · Ships in 2 days · Trail-tested",
   },
 ];
