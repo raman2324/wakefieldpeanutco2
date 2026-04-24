@@ -12,13 +12,9 @@ export function Hero() {
       transition={{ duration: 0.6 }}
       className="bg-grain relative overflow-hidden bg-cream"
     >
-      <div
-        className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-16 lg:gap-10 lg:py-24 lg:px-8"
-        style={{ gridTemplateColumns: undefined }}
-      >
-        <div className="lg:[grid-column:1/span_58] lg:max-w-none lg:w-full"
-             style={{}}>
-          <div className="lg:max-w-[680px]">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-16 lg:grid-cols-100 lg:gap-10 lg:py-24 lg:px-8">
+        {/* LEFT — 58/100 ≈ headline gets more oxygen than 7/12 */}
+        <div className="lg:col-span-58">
           <motion.span
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,11 +91,10 @@ export function Hero() {
               <Users className="size-4 text-heritage" /> 2,400+ Variety 6 Club Subscribers
             </li>
           </motion.ul>
-          </div>
         </div>
 
-        {/* RIGHT — image + floating cards */}
-        <div className="relative lg:[grid-column:span_42/-1]">
+        {/* RIGHT — image + floating cards (42/100) */}
+        <div className="relative lg:col-span-42">
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -115,7 +110,6 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
           </motion.div>
 
-          {/* Top-left product card */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -178,7 +172,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Section-end invitation */}
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 pb-10 text-center">
         <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-roast">
           ▪ Keep Scrolling
