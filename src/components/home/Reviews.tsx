@@ -36,9 +36,9 @@ export function Reviews() {
           <p className="text-xs font-semibold uppercase tracking-widest text-roast">
             What Customers Are Saying
           </p>
-          <h2 className="mt-3 font-serif text-4xl font-medium leading-[1.05] text-ink lg:text-5xl">
-            Generations of
-            <br /> <em className="not-italic text-roast">Satisfied Customers</em>
+          <h2 className="mt-3 font-serif text-4xl font-medium leading-[0.95] text-ink lg:text-5xl">
+            <span className="block">Generations of</span>
+            <span className="block"><em className="not-italic text-roast">Satisfied Customers</em></span>
           </h2>
 
           <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-3 text-ink/80">
@@ -55,14 +55,12 @@ export function Reviews() {
           </div>
         </div>
 
-        {/* Desktop grid */}
+        {/* Single render — grid on desktop, carousel on mobile */}
         <div className="mt-14 hidden grid-cols-3 gap-6 md:grid">
           {reviews.map((r) => (
             <ReviewCard key={r.name} {...r} />
           ))}
         </div>
-
-        {/* Mobile carousel */}
         <div className="mt-10 md:hidden">
           <Carousel opts={{ align: "start", loop: true }}>
             <CarouselContent>
