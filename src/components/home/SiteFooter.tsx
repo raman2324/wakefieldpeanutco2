@@ -1,4 +1,10 @@
 import { Facebook, Instagram } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const cols: { title: string; items: string[] }[] = [
   {
@@ -80,8 +86,9 @@ export function SiteFooter() {
             </div>
           </div>
 
+          {/* Desktop columns */}
           {cols.map((c) => (
-            <div key={c.title}>
+            <div key={c.title} className="hidden md:block">
               <h4 className="text-xs font-semibold uppercase tracking-widest text-gold">
                 {c.title}
               </h4>
@@ -96,7 +103,35 @@ export function SiteFooter() {
               </ul>
             </div>
           ))}
+
+          {/* Mobile accordion */}
+          <div className="md:hidden">
+            <Accordion type="single" collapsible>
+              {cols.map((c, i) => (
+                <AccordionItem key={c.title} value={`f-${i}`} className="border-cream/10">
+                  <AccordionTrigger className="text-xs font-semibold uppercase tracking-widest text-gold hover:no-underline">
+                    {c.title}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <ul className="space-y-2 pt-1 text-sm">
+                      {c.items.map((it) => (
+                        <li key={it}>
+                          <a className="text-cream/75 transition hover:text-gold" href="#">
+                            {it}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
+
+        <p className="mt-12 text-center font-serif text-[11px] italic text-cream/55">
+          Built with sweat and sweet tea in Wakefield, Virginia.
+        </p>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-cream/10 pt-6 text-xs text-cream/55 md:flex-row md:items-center">
           <p>© 2026 Wakefield Peanut Company LLC. All Rights Reserved.</p>

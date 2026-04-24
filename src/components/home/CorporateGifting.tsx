@@ -32,7 +32,8 @@ export function CorporateGifting() {
       {/* Watermark monogram */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -left-10 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[22rem] font-light leading-none text-gold/[0.06] lg:block"
+        style={{ WebkitTextStroke: "1.5px var(--color-gold)", color: "transparent", opacity: 0.06, fontWeight: 300 }}
+        className="pointer-events-none absolute -left-10 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[22rem] leading-none lg:block"
       >
         WPC
       </span>
@@ -57,9 +58,12 @@ export function CorporateGifting() {
         </div>
 
         <div className="rounded-3xl border border-cream/10 bg-heritage-deep/70 p-8 backdrop-blur-sm lg:p-10">
-          <h3 className="font-serif text-3xl">Start Your Corporate Order</h3>
-          <p className="mt-2 text-sm text-cream/70">
-            Tell us where to send pricing — we'll follow up personally.
+          <h3 className="font-serif text-3xl leading-tight">
+            One Form. Twenty Addresses. Zero Spreadsheets.
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-cream/75">
+            Upload your list. We'll hand-pack every tin, print every gift note, and coordinate
+            delivery windows. No account required.
           </p>
           <form onSubmit={submit} className="mt-6 space-y-3">
             <Input
@@ -82,6 +86,9 @@ export function CorporateGifting() {
             <a href="tel:18008031309" className="font-medium text-gold underline-offset-4 hover:underline">
               1-800-803-1309
             </a>
+          </p>
+          <p className="mt-6 border-t border-cream/10 pt-4 text-[11px] uppercase tracking-[0.2em] text-cream/55">
+            Trusted by 140+ Southern companies since 2004
           </p>
         </div>
       </div>
