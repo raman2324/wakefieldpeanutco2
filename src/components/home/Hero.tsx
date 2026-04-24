@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import heroPeanuts from "@/assets/hero-peanuts.jpg";
 import heroPeanutCard from "@/assets/hero-peanut-card.jpg";
 
-const headlineLine1 = "The South's Original".split("");
+const headlineLine1Words = "The South's Original".split(" ");
 const headlineWord = "Peanut.".split("");
 
 export function Hero() {
@@ -29,17 +29,27 @@ export function Hero() {
 
           <h1 className="mt-6 font-serif text-[clamp(3rem,7vw,6rem)] font-medium leading-[0.92] tracking-tight text-ink">
             <span aria-hidden className="block">
-              {headlineLine1.map((c, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + i * 0.04, duration: 0.4 }}
-                  className="inline-block"
-                >
-                  {c === " " ? "\u00A0" : c}
-                </motion.span>
-              ))}
+              {headlineLine1Words.map((word, wi) => {
+                const prevChars = headlineLine1Words
+                  .slice(0, wi)
+                  .reduce((sum, w) => sum + w.length, 0);
+                return (
+                  <span key={wi} className="inline-block whitespace-nowrap">
+                    {word.split("").map((c, i) => (
+                      <motion.span
+                        key={i}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 + (prevChars + i) * 0.04, duration: 0.4 }}
+                        className="inline-block"
+                      >
+                        {c}
+                      </motion.span>
+                    ))}
+                    {wi < headlineLine1Words.length - 1 && "\u00A0"}
+                  </span>
+                );
+              })}
             </span>
             <span aria-hidden className="block text-roast">
               {headlineWord.map((c, i) => (
