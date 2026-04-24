@@ -2,6 +2,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { SectionWrap } from "./SectionWrap";
+import storyFarm from "@/assets/story-farm.jpg";
+import storyHands from "@/assets/story-hands.jpg";
 
 const milestones = [
   { year: "1870s", text: "First commercial peanut crop in America, planted a few miles from our door." },
