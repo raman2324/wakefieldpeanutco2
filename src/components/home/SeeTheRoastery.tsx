@@ -1,5 +1,6 @@
 import { Play } from "lucide-react";
 import { SectionWrap } from "./SectionWrap";
+import roastery from "@/assets/roastery.jpg";
 
 export function SeeTheRoastery() {
   return (
@@ -9,7 +10,7 @@ export function SeeTheRoastery() {
         className="group relative block h-[60vh] min-h-[420px] w-full overflow-hidden"
       >
         <img
-          src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1900&q=80"
+          src={roastery}
           alt="Peanuts roasting in the warm glow of the Wakefield roaster"
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]"

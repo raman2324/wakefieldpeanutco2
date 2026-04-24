@@ -71,7 +71,7 @@ export function OurStory() {
             <div className="relative h-[520px]">
               <div className="absolute left-0 top-0 w-[78%] rotate-[-3deg] overflow-hidden rounded-2xl border-[6px] border-cream shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80"
+                  src={storyFarm}
                   alt="Virginia peanut field at golden hour"
                   loading="lazy"
                   className="h-72 w-full object-cover"
@@ -79,7 +79,7 @@ export function OurStory() {
               </div>
               <div className="absolute bottom-0 right-0 w-[72%] rotate-[4deg] overflow-hidden rounded-2xl border-[6px] border-cream shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=80"
+                  src={storyHands}
                   alt="The Wakefield country store front with retail sign"
                   loading="lazy"
                   className="h-72 w-full object-cover"
