@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Star, Truck, Gift, Award } from "lucide-react";
+import { ArrowRight, Star, Truck, Gift, Award, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroPeanuts from "@/assets/hero-peanuts.jpg";
 import heroPeanutCard from "@/assets/hero-peanut-card.jpg";
-
-const headlineLine1Words = "The South's Original".split(" ");
-const headlineWord = "Peanut.".split("");
 
 export function Hero() {
   return (
@@ -15,9 +12,13 @@ export function Hero() {
       transition={{ duration: 0.6 }}
       className="bg-grain relative overflow-hidden bg-cream"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-16 lg:grid-cols-12 lg:gap-10 lg:py-24 lg:px-8">
-        {/* LEFT */}
-        <div className="lg:col-span-7">
+      <div
+        className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 py-16 lg:gap-10 lg:py-24 lg:px-8"
+        style={{ gridTemplateColumns: undefined }}
+      >
+        <div className="lg:[grid-column:1/span_58] lg:max-w-none lg:w-full"
+             style={{}}>
+          <div className="lg:max-w-[680px]">
           <motion.span
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,50 +28,20 @@ export function Hero() {
             🌱 Family Owned · Since 1945 · Wakefield, VA
           </motion.span>
 
-          <h1 className="mt-6 font-serif text-[clamp(3rem,7vw,6rem)] font-medium leading-[0.92] tracking-tight text-ink">
-            <span aria-hidden className="block">
-              {headlineLine1Words.map((word, wi) => {
-                const prevChars = headlineLine1Words
-                  .slice(0, wi)
-                  .reduce((sum, w) => sum + w.length, 0);
-                return (
-                  <span key={wi} className="inline-block whitespace-nowrap">
-                    {word.split("").map((c, i) => (
-                      <motion.span
-                        key={i}
-                        initial={{ opacity: 0, y: 8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 + (prevChars + i) * 0.04, duration: 0.4 }}
-                        className="inline-block"
-                      >
-                        {c}
-                      </motion.span>
-                    ))}
-                    {wi < headlineLine1Words.length - 1 && "\u00A0"}
-                  </span>
-                );
-              })}
-            </span>
-            <span aria-hidden className="block text-roast">
-              {headlineWord.map((c, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.0 + i * 0.05, duration: 0.4 }}
-                  className="inline-block"
-                >
-                  {c}
-                </motion.span>
-              ))}
-            </span>
-            <span className="sr-only">The South's Original Peanut.</span>
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
+            className="mt-6 font-serif text-[clamp(3rem,7vw,6rem)] font-medium leading-[0.92] tracking-tight text-ink"
+          >
+            <span className="block">The South's Original</span>
+            <span className="block text-roast">Peanut.</span>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
+            transition={{ delay: 0.55, duration: 0.5 }}
             className="mt-6 max-w-xl text-lg leading-[1.6] text-ink/75"
           >
             Hand-sorted, small-batch Virginia peanuts from the same soil where America's
@@ -81,7 +52,7 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.7, duration: 0.5 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
             className="mt-8 flex flex-wrap items-center gap-3"
           >
             <Button
@@ -105,7 +76,7 @@ export function Hero() {
           <motion.ul
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.9, duration: 0.6 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
             className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-ink/70"
           >
             <li className="inline-flex items-center gap-1.5">
@@ -120,11 +91,15 @@ export function Hero() {
             <li className="inline-flex items-center gap-1.5">
               <Award className="size-4 text-gold" /> Virginia's Finest
             </li>
+            <li className="inline-flex items-center gap-1.5">
+              <Users className="size-4 text-heritage" /> 2,400+ Variety 6 Club Subscribers
+            </li>
           </motion.ul>
+          </div>
         </div>
 
         {/* RIGHT — image + floating cards */}
-        <div className="relative lg:col-span-5">
+        <div className="relative lg:[grid-column:span_42/-1]">
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -134,7 +109,7 @@ export function Hero() {
           >
             <img
               src={heroPeanuts}
-              alt="Open tin of Wakefield Virginia peanuts spilling onto warm linen"
+              alt="Open tin of Wakefield salted peanuts spilling onto warm linen with a wooden scoop alongside"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent" />
@@ -152,7 +127,7 @@ export function Hero() {
               <div className="size-12 shrink-0 overflow-hidden rounded-lg bg-highlight">
                 <img
                   src={heroPeanutCard}
-                  alt=""
+                  alt="Single Virginia peanut close-up"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -160,7 +135,9 @@ export function Hero() {
                 <span className="inline-block rounded-full bg-roast/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-roast">
                   Best Seller
                 </span>
-                <p className="mt-1 truncate text-sm font-medium text-ink">Salted Gourmet Peanuts</p>
+                <p className="mt-1 truncate text-sm font-medium text-ink">
+                  Salted Gourmet Virginia Peanuts
+                </p>
                 <div className="flex items-center gap-1 text-xs text-ink/70">
                   <span>$8.50</span>
                   <span className="ml-1 flex">
@@ -173,7 +150,6 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Middle-right CTA pill */}
           <motion.a
             href="#gift-sets"
             initial={{ opacity: 0, x: 10 }}
@@ -186,7 +162,6 @@ export function Hero() {
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </motion.a>
 
-          {/* Bottom-right card */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -204,15 +179,24 @@ export function Hero() {
       </div>
 
       {/* Section-end invitation */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center pb-10 text-center">
-        <p className="font-serif text-sm italic text-ink/55">
-          Keep scrolling — there's a story in here.
-        </p>
-        <ChevronDown
-          className="mt-2 size-5 text-roast"
-          style={{ animation: "bounce-slow 2.4s ease-in-out infinite" }}
-        />
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 pb-10 text-center">
+        <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-roast">
+          ▪ Keep Scrolling
+        </span>
+        <span className="relative block h-10 w-px overflow-hidden bg-gold/25" aria-hidden>
+          <span
+            className="absolute inset-x-0 top-0 block h-1/2 bg-gold"
+            style={{ animation: "scroll-rule 2.2s ease-in-out infinite" }}
+          />
+        </span>
       </div>
+
+      <style>{`
+        @keyframes scroll-rule {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(200%); }
+        }
+      `}</style>
     </motion.section>
   );
 }
