@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, RefreshCw, User, Gift, Users, Briefcase, Sparkles, DollarSign } from "lucide-react";
+import { ArrowLeft, ArrowRight, RefreshCw, User, Gift, Users, Briefcase, Sparkles, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ProductCard, SAMPLE_PRODUCTS, type Product } from "./ProductCard";
@@ -28,26 +28,28 @@ const budgetOptions: { id: Budget; label: string }[] = [
   { id: "30+", label: "$30+" },
 ];
 
-function pick(who: Who, flavor: Flavor, _budget: Budget): { product: Product; rationale: string } {
-  const idMap: Record<string, string> = {
-    "Just me|Classic": "salted",
-    "Just me|Sweet": "brittle",
-    "Just me|Bold": "cajun",
-    "Just me|Surprise": "honey",
-    "A gift|Classic": "salted",
-    "A gift|Sweet": "choc",
-    "A gift|Bold": "cajun",
-    "A gift|Surprise": "trail",
-    "A crowd|Classic": "raw",
-    "A crowd|Sweet": "toffee",
-    "A crowd|Bold": "cajun",
-    "A crowd|Surprise": "trail",
-    "Clients|Classic": "salted",
-    "Clients|Sweet": "choc",
-    "Clients|Bold": "honey",
-    "Clients|Surprise": "honey",
-  };
-  const id = idMap[`${who}|${flavor}`] ?? "salted";
+const ALT_MAP: Record<string, string[]> = {
+  "Just me|Classic": ["salted", "honey", "raw"],
+  "Just me|Sweet": ["brittle", "choc", "toffee"],
+  "Just me|Bold": ["cajun", "trail", "salted"],
+  "Just me|Surprise": ["honey", "trail", "toffee"],
+  "A gift|Classic": ["salted", "honey", "toffee"],
+  "A gift|Sweet": ["choc", "brittle", "toffee"],
+  "A gift|Bold": ["cajun", "honey", "trail"],
+  "A gift|Surprise": ["trail", "honey", "choc"],
+  "A crowd|Classic": ["raw", "salted", "honey"],
+  "A crowd|Sweet": ["toffee", "brittle", "choc"],
+  "A crowd|Bold": ["cajun", "trail", "raw"],
+  "A crowd|Surprise": ["trail", "toffee", "raw"],
+  "Clients|Classic": ["salted", "toffee", "honey"],
+  "Clients|Sweet": ["choc", "toffee", "brittle"],
+  "Clients|Bold": ["honey", "cajun", "trail"],
+  "Clients|Surprise": ["honey", "toffee", "trail"],
+};
+
+function pickAt(who: Who, flavor: Flavor, idx: number): { product: Product; rationale: string } {
+  const ids = ALT_MAP[`${who}|${flavor}`] ?? ["salted"];
+  const id = ids[idx % ids.length];
   const product = SAMPLE_PRODUCTS.find((p) => p.id === id)!;
   const rationaleMap: Record<string, string> = {
     salted: "A clean classic for the lifelong snacker — our most-gifted tin.",
@@ -67,15 +69,17 @@ export function FindYourPeanut() {
   const [who, setWho] = useState<Who | null>(null);
   const [flavor, setFlavor] = useState<Flavor | null>(null);
   const [budget, setBudget] = useState<Budget | null>(null);
+  const [altIdx, setAltIdx] = useState(0);
 
   const reset = () => {
     setStep(0);
     setWho(null);
     setFlavor(null);
     setBudget(null);
+    setAltIdx(0);
   };
 
-  const result = step === 3 && who && flavor && budget ? pick(who, flavor, budget) : null;
+  const result = step === 3 && who && flavor && budget ? pickAt(who, flavor, altIdx) : null;
   const progressVal = step === 0 ? 0 : (step / 3) * 100;
 
   return (
@@ -137,7 +141,15 @@ export function FindYourPeanut() {
                 exit={{ opacity: 0, x: -16 }}
                 transition={{ duration: 0.35 }}
               >
-                <h3 className="font-serif text-2xl text-ink">Pick your flavor lane.</h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-serif text-2xl text-ink">Pick your flavor lane.</h3>
+                  <button
+                    onClick={() => setStep(0)}
+                    className="inline-flex items-center gap-1 text-xs text-ink/55 hover:text-roast"
+                  >
+                    <ArrowLeft className="size-3" /> Back
+                  </button>
+                </div>
                 <div className="mt-5 grid grid-cols-2 gap-3">
                   {flavorOptions.map((o) => (
                     <button
@@ -165,7 +177,15 @@ export function FindYourPeanut() {
                 exit={{ opacity: 0, x: -16 }}
                 transition={{ duration: 0.35 }}
               >
-                <h3 className="font-serif text-2xl text-ink">Budget?</h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-serif text-2xl text-ink">Budget?</h3>
+                  <button
+                    onClick={() => setStep(1)}
+                    className="inline-flex items-center gap-1 text-xs text-ink/55 hover:text-roast"
+                  >
+                    <ArrowLeft className="size-3" /> Back
+                  </button>
+                </div>
                 <div className="mt-5 grid grid-cols-3 gap-3">
                   {budgetOptions.map((o) => (
                     <button
@@ -173,6 +193,7 @@ export function FindYourPeanut() {
                       onClick={() => {
                         setBudget(o.id);
                         setStep(3);
+                        setAltIdx(0);
                       }}
                       className="rounded-2xl border border-ink/10 bg-cream p-5 text-center transition hover:border-roast hover:bg-highlight"
                     >
@@ -205,7 +226,7 @@ export function FindYourPeanut() {
                     </Button>
                     <Button
                       variant="outline"
-                      onClick={() => setStep(2)}
+                      onClick={() => setAltIdx((i) => i + 1)}
                       className="rounded-full border-ink/20 bg-transparent text-ink hover:bg-ink hover:text-cream"
                     >
                       <RefreshCw className="mr-2 size-4" />
@@ -219,6 +240,12 @@ export function FindYourPeanut() {
                     </button>
                   </div>
                 </div>
+                <p className="mt-6 text-center text-sm italic text-ink/60">
+                  Not feeling it?{" "}
+                  <a href="#shop" className="text-roast underline-offset-4 hover:underline">
+                    We have 23 more tins →
+                  </a>
+                </p>
               </motion.div>
             )}
           </AnimatePresence>
