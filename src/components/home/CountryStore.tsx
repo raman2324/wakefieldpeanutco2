@@ -1,6 +1,7 @@
 import { MapPin, Clock, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrap } from "./SectionWrap";
+import countryStore from "@/assets/country-store.jpg";
 
 export function CountryStore() {
   return (
@@ -8,7 +9,7 @@ export function CountryStore() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
         <div className="overflow-hidden rounded-[2rem] shadow-xl">
           <img
-            src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
+            src={countryStore}
             alt="The Wakefield Peanut Company country store on Route 460"
             loading="lazy"
             className="aspect-[4/3] h-full w-full object-cover"

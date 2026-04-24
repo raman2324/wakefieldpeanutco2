@@ -1,6 +1,7 @@
 import { Star, Gift, Truck, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionWrap } from "./SectionWrap";
+import giftSets from "@/assets/gift-sets.jpg";
 
 export function GiftSetsFeature() {
   return (
@@ -10,7 +11,7 @@ export function GiftSetsFeature() {
         <div className="relative lg:col-span-7">
           <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-30px_rgba(31,43,30,0.45)]">
             <img
-              src="https://images.unsplash.com/photo-1607920591413-e9b67ad33c3c?auto=format&fit=crop&w=1400&q=80"
+              src={giftSets}
               alt="Open Wakefield gift box with peanut tins, brittle, and a hand-tied burgundy ribbon"
               loading="lazy"
               className="h-full w-full object-cover"

@@ -1,5 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { SectionWrap } from "./SectionWrap";
+import imgBrittle from "@/assets/product-brittle.jpg";
+import imgHoney from "@/assets/product-honey.jpg";
+import imgSalted from "@/assets/product-salted.jpg";
 
 const pairings = [
   {
@@ -8,7 +11,7 @@ const pairings = [
     mood: "The rain hits harder when the brittle snaps right.",
     tags: ["5 min", "Classic porch ritual"],
     cta: "See the Ritual",
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+    img: imgBrittle,
   },
   {
     slug: "honey-bourbon",
@@ -16,7 +19,7 @@ const pairings = [
     mood: "Sweet roast, smoky pour. A fair trade.",
     tags: ["Pair of two", "After-dinner"],
     cta: "See the Pairing",
-    img: "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=900&q=80",
+    img: imgHoney,
   },
   {
     slug: "salted-beer",
@@ -24,7 +27,7 @@ const pairings = [
     mood: "The only tin you'll find in our booth at the tailgate.",
     tags: ["Crowd-ready", "Game day"],
     cta: "See the Combo",
-    img: "https://images.unsplash.com/photo-1532634726-8b9fb99825c2?auto=format&fit=crop&w=900&q=80",
+    img: imgSalted,
   },
 ];
 

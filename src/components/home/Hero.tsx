@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Star, Truck, Gift, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import heroPeanuts from "@/assets/hero-peanuts.jpg";
+import heroPeanutCard from "@/assets/hero-peanut-card.jpg";
 
 const headlineLine1 = "The South's Original".split("");
 const headlineWord = "Peanut.".split("");
@@ -121,7 +123,7 @@ export function Hero() {
             style={{ animation: "float-slow 7s ease-in-out infinite" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1567892737950-30c4db37cd89?auto=format&fit=crop&w=1200&q=80"
+              src={heroPeanuts}
               alt="Open tin of Wakefield Virginia peanuts spilling onto warm linen"
               className="h-full w-full object-cover"
             />
@@ -139,7 +141,7 @@ export function Hero() {
             <div className="flex items-center gap-3">
               <div className="size-12 shrink-0 overflow-hidden rounded-lg bg-highlight">
                 <img
-                  src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=120&q=80"
+                  src={heroPeanutCard}
                   alt=""
                   className="h-full w-full object-cover"
                 />
