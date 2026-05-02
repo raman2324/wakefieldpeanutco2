@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Search, User, Heart, ShoppingBag, Menu, ChevronDown } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/wakefield-logo.png";
 
 const nav: { label: string; items?: string[]; pill?: string }[] = [
   {
@@ -53,18 +54,12 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 lg:px-8">
         {/* Logo */}
-        <a href="/" className="group flex items-center gap-2">
-          <svg width="22" height="22" viewBox="0 0 32 32" className="text-roast">
-            <path
-              d="M16 3c4 0 7 3 7 7 0 2-1 3-1 5s2 3 2 6c0 4-4 8-8 8s-8-4-8-8c0-3 2-4 2-6s-1-3-1-5c0-4 3-7 7-7z"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.6"
-            />
-          </svg>
-          <span className="font-serif text-xl font-medium tracking-tight text-ink">
-            Wakefield<span className="text-roast">.</span>
-          </span>
+        <a href="/" className="group">
+          <img
+            src={logo}
+            alt="Wakefield Peanut Company"
+            className="h-24 w-auto transition-opacity group-hover:opacity-90"
+          />
         </a>
 
         {/* Desktop nav */}
